@@ -1,0 +1,23 @@
+{
+  "name": "addressico-common",
+  "version": "1.0.0",
+  "description": "Types, utils, and anything else that needs to be shared across projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arturo-jc/addressico-common.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arturo-jc/addressico-common/issues"
+  },
+  "homepage": "https://github.com/arturo-jc/addressico-common#readme",
+  "dependencies": {
+    "typescript": "^5.2.2"
+  }
+}
