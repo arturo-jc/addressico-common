@@ -1,6 +1,6 @@
 export interface Field {
     id: string;
-    abstractControlType?: AbstractControlType;
+    abstractControlType: AbstractControlType;
     dataType: RequiredFieldDataType;
     inputType: RequiredFieldInputType;
     label: string;
@@ -9,7 +9,6 @@ export interface Field {
     placeholder?: string;
     // Fields that should be added conditionally based on the value of the parent field
     subFields: SubField[];
-    // Show the field if the value of the parent field matches the value of showOnValue
     options?: {
         label: string;
         value: string | boolean;
@@ -27,6 +26,7 @@ export interface Field {
 export type AbstractControlType = 'formControl' | 'formGroup' | 'formArray';
 
 export interface SubField extends Field{
+    // Show the field if the value of the parent field matches the value of showOnValue
     showOnValue?: any;
 }
 
