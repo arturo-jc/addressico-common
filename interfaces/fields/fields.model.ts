@@ -8,7 +8,7 @@ export interface Field {
     validators: FieldValidators;
     placeholder?: string;
     // Fields that should be added conditionally based on the value of the parent field
-    subFields: SubField[];
+    subFields: Field[];
     options?: {
         label: string;
         value: string | boolean;
@@ -21,22 +21,19 @@ export interface Field {
     arrayItemType?: Control;
     // The label of the button to add a new item to the formArray
     addButtonLabel?: string;
-}
-
-export type AbstractControlType = 'formControl' | 'formGroup' | 'formArray';
-
-export interface SubField extends Field{
     // Show the field if the value of the parent field matches the value of showOnValue
     showOnValue?: any;
 }
+
+export type AbstractControlType = 'formControl' | 'formGroup' | 'formArray';
 
 export interface FieldWithValue extends Omit<Field, 'subFields'> {
     value: any;
     serviceId: string;
 }
 
-export interface Control extends Omit<Field, 'id'> {
-    controlName?: string;
+export interface Control extends Omit<Field, 'id' | 'subFields'> {
+    controlName: string;
 }
 
 export type RequiredFieldDataType =

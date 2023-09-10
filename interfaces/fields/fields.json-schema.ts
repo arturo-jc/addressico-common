@@ -1,10 +1,10 @@
 import { FromSchema } from 'json-schema-to-ts';
 
-const AJV_OPTION_SCHEMA = {
+export const AJV_OPTION_SCHEMA = {
   type: 'object',
   properties: {
     label: {
-      type: 'number',
+      type: 'string',
     },
     value: {
       oneOf: [
@@ -17,7 +17,7 @@ const AJV_OPTION_SCHEMA = {
   additionalProperties: false,
 } as const;
 
-const AJV_FIELD_VALIDATORS_SCHEMA = {
+export const AJV_FIELD_VALIDATORS_SCHEMA = {
   type: 'object',
   properties: {
     required: { type: 'boolean' },
@@ -27,11 +27,13 @@ const AJV_FIELD_VALIDATORS_SCHEMA = {
     max: { type: 'number' },
     pattern: { type: 'string' },
     format: { type: 'string' },
+    email: { type: 'boolean' },
+    requiredTrue: { type: 'boolean' },
   },
   additionalProperties: false,
 } as const;
 
-const AJV_ABSTRACT_CONTROL_TYPE_SCHEMA = {
+export const AJV_ABSTRACT_CONTROL_TYPE_SCHEMA = {
   enum: [
     'formControl',
     'formGroup',
@@ -39,7 +41,7 @@ const AJV_ABSTRACT_CONTROL_TYPE_SCHEMA = {
   ],
 } as const;
 
-const AJV_REQUIRED_FIELD_DATA_TYPE_SCHEMA = {
+export const AJV_REQUIRED_FIELD_DATA_TYPE_SCHEMA = {
   enum: [
     'number',
     'text',
@@ -56,7 +58,7 @@ const AJV_REQUIRED_FIELD_DATA_TYPE_SCHEMA = {
   ],
 } as const;
 
-const AJV_REQUIRED_INPUT_TYPE_SCHEMA = {
+export const AJV_REQUIRED_INPUT_TYPE_SCHEMA = {
   enum: [
     'inputText',
     'inputNumber',
@@ -72,7 +74,7 @@ const AJV_REQUIRED_INPUT_TYPE_SCHEMA = {
   ],
 } as const;
 
-const BASE_FIELD_PROPERTIES = {
+export const BASE_FIELD_PROPERTIES = {
     abstractControlType: AJV_ABSTRACT_CONTROL_TYPE_SCHEMA,
     dataType: AJV_REQUIRED_FIELD_DATA_TYPE_SCHEMA,
     inputType: AJV_REQUIRED_INPUT_TYPE_SCHEMA,
@@ -86,44 +88,31 @@ const BASE_FIELD_PROPERTIES = {
     },
     defaultValue: { type: 'string' },
     defaultValueVariable: { type: 'string' },
-    // TODO: controls, arrayItemType
     addButtonLabel: { type: 'string' },
+    showOnValue: {
+      oneOf: [
+        { type: 'string' },
+        { type: 'boolean' },
+        { type: 'number' },
+        { type: 'integer' },
+        { type: 'array' },
+        { type: 'object' },
+        { type: 'null' },
+      ],
+    },
 } as const;
 
-type Option = FromSchema<typeof AJV_OPTION_SCHEMA>;
+export type Option = FromSchema<typeof AJV_OPTION_SCHEMA>;
 
-type FieldValidators = FromSchema<typeof AJV_FIELD_VALIDATORS_SCHEMA>;
+export type FieldValidators = FromSchema<typeof AJV_FIELD_VALIDATORS_SCHEMA>;
 
-type AbstractControlType = FromSchema<typeof AJV_ABSTRACT_CONTROL_TYPE_SCHEMA>;
+export type AbstractControlType = FromSchema<typeof AJV_ABSTRACT_CONTROL_TYPE_SCHEMA>;
 
-type RequiredFieldDataType = FromSchema<typeof AJV_REQUIRED_FIELD_DATA_TYPE_SCHEMA>;
+export type RequiredFieldDataType = FromSchema<typeof AJV_REQUIRED_FIELD_DATA_TYPE_SCHEMA>;
 
-type RequiredInputType = FromSchema<typeof AJV_REQUIRED_INPUT_TYPE_SCHEMA>;
+export type RequiredInputType = FromSchema<typeof AJV_REQUIRED_INPUT_TYPE_SCHEMA>;
 
 // DEFINE NON-RECURSIVE SCHEMAS
-
-/**
- * `FromSchema` does not support recursive schemas so we must pass a non-recursive schema to construct the basic type.
- * DO NOT USE FOR VALIDATION. Use `AJV_SUBFIELD_SCHEMA` instead.
- */
-const _NON_RECURSIVE_SUBFIELD_SCHEMA = {
-  type: 'object',
-  properties: {
-    ...BASE_FIELD_PROPERTIES,
-    id: { type: 'string' },
-    showOnValue: { type: 'string' },
-  },
-  required: [
-    'id',
-    'abstractControlType',
-    'dataType',
-    'inputType',
-    'label',
-    'label_fr',
-    'validators',
-  ],
-  additionalProperties: false,
-} as const;
 
 /**
  * `FromSchema` does not support recursive schemas so we must pass a non-recursive schema to construct the basic type.
@@ -136,6 +125,7 @@ const _NON_RECURSIVE_CONTROL_SCHEMA = {
     controlName: { type: 'string' },
   },
   required: [
+    'controlName',
     'abstractControlType',
     'dataType',
     'inputType',
@@ -174,65 +164,53 @@ type _NonRecursiveFieldType = FromSchema<typeof _NON_RECURSIVE_FIELD_SCHEMA>;
 
 type _NonRecursiveControlType = FromSchema<typeof _NON_RECURSIVE_CONTROL_SCHEMA>;
 
-type _NonRecursiveSubFieldType = FromSchema<typeof _NON_RECURSIVE_SUBFIELD_SCHEMA>;
-
 // USE NON-RECURSIVE TYPES TO CONSTRUCT RECURSIVE TYPES
 
-interface SubField extends _NonRecursiveSubFieldType {
-  subFields?: SubField[];
-};
-
-interface Control extends _NonRecursiveControlType {
-  subFields?: SubField[];
-};
-
-interface Field extends _NonRecursiveFieldType {
-  subFields?: SubField[];
+export interface Control extends _NonRecursiveControlType {
   controls?: Control[];
+  arrayItemType?: Control;
 };
+
+export interface Field extends _NonRecursiveFieldType {
+  controls?: Control[];
+  arrayItemType?: Control;
+  subFields?: Field[];
+};
+
+export interface FieldWithValue extends Omit<Field, 'subFields'> {
+    value: any;
+    serviceId: string;
+}
 
 // USE NON-RECURSIVE SCHEMAS TO CONSTRUCT AJV SCHEMAS
 
-const AJV_SUBFIELD_SCHEMA = {
-  ..._NON_RECURSIVE_SUBFIELD_SCHEMA,
-  properties: {
-    ..._NON_RECURSIVE_SUBFIELD_SCHEMA.properties,
-    subFields: {
-      type: 'array',
-      items: { $ref: '#' },
-    },
-  },
-} as const;
-
-const AJV_CONTROL_SCHEMA = {
+export const AJV_CONTROL_SCHEMA = {
   ..._NON_RECURSIVE_CONTROL_SCHEMA,
   properties: {
     ..._NON_RECURSIVE_CONTROL_SCHEMA.properties,
-    subFields: {
+    controls: {
       type: 'array',
-      items: { $ref: '#/definitions/subField' },
+      items: { $ref: '#' },
     },
-  },
-  definitions: {
-    subField: AJV_SUBFIELD_SCHEMA,
+    arrayItemType: { $ref: '#' },
   },
 } as const;
 
-const AJV_FIELD_SCHEMA = {
+export const AJV_FIELD_SCHEMA = {
   ..._NON_RECURSIVE_FIELD_SCHEMA,
   properties: {
     ..._NON_RECURSIVE_FIELD_SCHEMA.properties,
     subFields: {
       type: 'array',
-      items: { $ref: '#/definitions/subField' },
+      items: { $ref: '#' },
     },
     controls: {
       type: 'array',
       items: { $ref: '#/definitions/control' },
     },
+    arrayItemType: { $ref: '#/definitions/control' },
   },
   definitions: {
-    subField: AJV_SUBFIELD_SCHEMA,
     control: AJV_CONTROL_SCHEMA,
   },
 } as const;
