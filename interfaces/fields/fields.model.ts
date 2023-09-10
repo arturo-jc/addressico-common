@@ -1,6 +1,6 @@
 export interface Field {
     id: string;
-    abstractControlType?: 'formControl' | 'formGroup' | 'formArray';
+    abstractControlType?: AbstractControlType;
     dataType: RequiredFieldDataType;
     inputType: RequiredFieldInputType;
     label: string;
@@ -12,21 +12,22 @@ export interface Field {
     // Show the field if the value of the parent field matches the value of showOnValue
     options?: {
         label: string;
-        value: string;
+        value: string | boolean;
     }[];
     defaultValue?: string;
-    defaultValueVariable: string;
+    defaultValueVariable?: string;
     // Use in conjunction with abstractControlType = 'formGroup' to specify what controls the formGroup will contain
-    controls?: Field[];
-    controlName?: string;
+    controls?: Control[];
     // Use in conjunction with abstractControlType = 'formArray' to specify what type of abstractControl the formArray will contain
-    arrayItemType?: Field;
+    arrayItemType?: Control;
     // The label of the button to add a new item to the formArray
     addButtonLabel?: string;
 }
 
+export type AbstractControlType = 'formControl' | 'formGroup' | 'formArray';
+
 export interface SubField extends Field{
-    showOnValue: any;
+    showOnValue?: any;
 }
 
 export interface FieldWithValue extends Omit<Field, 'subFields'> {
@@ -34,16 +35,23 @@ export interface FieldWithValue extends Omit<Field, 'subFields'> {
     serviceId: string;
 }
 
+export interface Control extends Omit<Field, 'id'> {
+    controlName?: string;
+}
+
 export type RequiredFieldDataType =
-| 'number'
+|  'number'
 |  'text'
 |  'email'
 |  'password'
+|  'phone'
 |  'date'
 |  'boolean'
 |  'file'
 |  'select'
-|  'multiselect';
+|  'multiselect'
+|  'object'
+|  'array';
 
 export type RequiredFieldInputType =
 | 'inputText'
@@ -55,6 +63,8 @@ export type RequiredFieldInputType =
 |  'multiselect'
 |  'textarea'
 |  'phone'
+|  'form'
+|  'formArray'
 ;
 
 export interface FieldValidators {

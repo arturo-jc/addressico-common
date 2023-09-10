@@ -1,14 +1,14 @@
 import { Field } from "../fields/fields.model";
 
 export type IntegrationType =
-| 'email'
+|  'email'
 |  'axiom_webhook'
 |  'manual_online'
 |  'manual_in_person'
 |  'manual_phone'
 |  'emailWithPDF'
 |  'api'
-|  'online_form'
+|  'online_form';
 
 export interface ServiceProvider {
     id: string;
@@ -19,6 +19,7 @@ export interface ServiceProvider {
     shortName?: string;
     shortName_fr?: string;
     integrations: Integration[];
+    inactive?: Integration[];
     // The categories that the service provider belongs to
     categories: string[];
     // The jurisdictions that the service provider operates in ie. 'MB', 'ON', 'BC'
@@ -39,7 +40,9 @@ export interface ServiceProvider {
     requiredInformation: Field[];
     requiredDocuments?: string[];
     details?: string[];
+    details_fr?: string[];
     risks?: string[];
+    whenToUpdate?: string;
 };
 
 export interface Integration{
@@ -47,4 +50,6 @@ export interface Integration{
     instructions: string;
     email?: string;
     name?: string;
+    pdf?: string;
+    website?: string;
 }
