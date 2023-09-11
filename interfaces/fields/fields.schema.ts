@@ -1,17 +1,22 @@
 import { FromSchema } from 'json-schema-to-ts';
 
+export const AJV_ANY = {
+  oneOf: [
+    { type: 'string' },
+    { type: 'boolean' },
+    { type: 'number' },
+    { type: 'integer' },
+    { type: 'array' },
+    { type: 'object' },
+    { type: 'null' },
+  ],
+} as const;
+
 export const AJV_OPTION_SCHEMA = {
   type: 'object',
   properties: {
-    label: {
-      type: 'string',
-    },
-    value: {
-      oneOf: [
-        { type: 'string' },
-        { type: 'boolean' },
-      ],
-    },
+    label: { type: 'string' },
+    value: { type: 'null' },
   },
   required: ['label', 'value'],
   additionalProperties: false,
@@ -89,17 +94,7 @@ export const BASE_FIELD_PROPERTIES = {
     defaultValue: { type: 'string' },
     defaultValueVariable: { type: 'string' },
     addButtonLabel: { type: 'string' },
-    showOnValue: {
-      oneOf: [
-        { type: 'string' },
-        { type: 'boolean' },
-        { type: 'number' },
-        { type: 'integer' },
-        { type: 'array' },
-        { type: 'object' },
-        { type: 'null' },
-      ],
-    },
+    showOnValue: AJV_ANY,
 } as const;
 
 export type Option = FromSchema<typeof AJV_OPTION_SCHEMA>;
