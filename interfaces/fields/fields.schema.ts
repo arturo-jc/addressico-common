@@ -16,7 +16,7 @@ export const AJV_OPTION_SCHEMA = {
   type: 'object',
   properties: {
     label: { type: 'string' },
-    value: { type: 'null' },
+    value: AJV_ANY,
   },
   required: ['label', 'value'],
   additionalProperties: false,
