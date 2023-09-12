@@ -70,6 +70,7 @@ export const AJV_USER_SCHEMA = {
     email: { type: 'string' },
     firstName: { type: 'string' },
     lastName: { type: 'string' },
+    // Format 'YYYY-MM-DD',
     movingDate: { type: 'string' },
     defaultProviderEmail: { type: 'string' },
     notes: { type: 'string' },
@@ -85,8 +86,15 @@ export const AJV_USER_SCHEMA = {
       type: 'array',
       items: AJV_USER_LOCATION_SCHEMA,
     },
+    createdBy: { type: 'string' },
+    invitedBy: { type: 'string' },
+    employeeOfPartner: { type: 'string' },
   },
-  required: [ 'id' ],
+  required: [
+    'id',
+    'createdBy',
+    'invitedBy',
+  ],
   additionalProperties: false,
 } as const;
 
@@ -146,4 +154,13 @@ export interface CreateUserInput {
   lastName?: string;
   movingDate?: string;
   phone?: string;
+  role: Auth0Role;
+}
+
+export type Auth0Role = 'partner' | 'user' | undefined;
+
+export interface GetUserInput{
+    id?: string;
+    invitedBy?: string;
+    employeeOfPartner?: string;
 }
