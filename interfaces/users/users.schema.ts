@@ -2,14 +2,16 @@ import { FromSchema } from 'json-schema-to-ts';
 import { AJV_ANY } from '../fields/fields.schema';
 import { AJV_INTEGRATION_TYPE_SCHEMA } from '../service-providers/service-providers.schema';
 
+export const USER_SERVICE_DATA_STATUSES = [
+  'complete',
+  'incomplete',
+  'confirmed',
+  'failed',
+  'in_progress',
+] as const;
+
 export const AJV_USER_SERVICE_DATA_STATUS_SCHEMA = {
-  enum: [
-    'complete',
-    'incomplete',
-    'confirmed',
-    'failed',
-    'in_progress',
-  ],
+  enum: USER_SERVICE_DATA_STATUSES,
 } as const;
 
 export const AJV_USER_LOCATION_SCHEMA = {
@@ -131,22 +133,11 @@ export type Auth0User = FromSchema<typeof AJV_AUTH0_USER_SCHEMA>;
 
 export type ServiceData = FromSchema<typeof AJV_SERVICE_DATA>;
 
-// We cannot use FromSchema here because it does not support enums
-export enum UserServiceDataStatus {
-  complete = 'complete',
-  incomplete = 'incomplete',
-  confirmed = 'confirmed',
-  failed = 'failed',
-  in_progress = 'in_progress',
-}
+export type UserServiceDataStatus = FromSchema<typeof AJV_USER_SERVICE_DATA_STATUS_SCHEMA>;
 
-export interface UserService extends Omit<FromSchema<typeof AJV_USER_SERVICE_SCHEMA>, 'serviceStatus'> {
-  serviceStatus: UserServiceDataStatus;
-}
+export type UserService = FromSchema<typeof AJV_USER_SERVICE_SCHEMA>;
 
-export interface User extends Omit<FromSchema<typeof AJV_USER_SCHEMA>, ''> {
-  services: UserService[];
-}
+export type User = FromSchema<typeof AJV_USER_SCHEMA>;
 
 export interface CreateUserInput {
   email: string;
