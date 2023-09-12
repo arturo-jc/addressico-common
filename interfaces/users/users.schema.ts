@@ -1,6 +1,6 @@
 import { FromSchema } from 'json-schema-to-ts';
-import { AJV_ANY } from '../fields/fields.schema';
-import { AJV_INTEGRATION_TYPE_SCHEMA } from '../service-providers/service-providers.schema';
+import { AJV_INTEGRATION_TYPE_SCHEMA } from '../service-providers/others.schema';
+import { AJV_ANY } from '../fields/others.schema';
 
 export const USER_SERVICE_DATA_STATUSES = [
   'complete',
