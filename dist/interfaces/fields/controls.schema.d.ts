@@ -4,7 +4,7 @@ export declare const BASE_FIELD_PROPERTIES: {
         readonly enum: readonly ["formControl", "formGroup", "formArray"];
     };
     readonly dataType: {
-        readonly enum: readonly ["number", "text", "email", "password", "phone", "date", "boolean", "file", "select", "multiselect", "object", "array"];
+        readonly enum: readonly ["number", "text", "email", "password", "phone", "date", "boolean", "file", "object", "array"];
     };
     readonly inputType: {
         readonly enum: readonly ["inputText", "inputNumber", "calendar", "dropdown", "checkbox", "radioButton", "multiselect", "textarea", "phone", "form", "formArray"];
@@ -123,7 +123,7 @@ declare const _NON_RECURSIVE_CONTROL_SCHEMA: {
             readonly enum: readonly ["formControl", "formGroup", "formArray"];
         };
         readonly dataType: {
-            readonly enum: readonly ["number", "text", "email", "password", "phone", "date", "boolean", "file", "select", "multiselect", "object", "array"];
+            readonly enum: readonly ["number", "text", "email", "password", "phone", "date", "boolean", "file", "object", "array"];
         };
         readonly inputType: {
             readonly enum: readonly ["inputText", "inputNumber", "calendar", "dropdown", "checkbox", "radioButton", "multiselect", "textarea", "phone", "form", "formArray"];
@@ -253,7 +253,7 @@ export declare const AJV_CONTROL_SCHEMA: {
             readonly enum: readonly ["formControl", "formGroup", "formArray"];
         };
         readonly dataType: {
-            readonly enum: readonly ["number", "text", "email", "password", "phone", "date", "boolean", "file", "select", "multiselect", "object", "array"];
+            readonly enum: readonly ["number", "text", "email", "password", "phone", "date", "boolean", "file", "object", "array"];
         };
         readonly inputType: {
             readonly enum: readonly ["inputText", "inputNumber", "calendar", "dropdown", "checkbox", "radioButton", "multiselect", "textarea", "phone", "form", "formArray"];

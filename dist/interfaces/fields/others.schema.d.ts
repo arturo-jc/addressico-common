@@ -80,7 +80,7 @@ export declare const AJV_ABSTRACT_CONTROL_TYPE_SCHEMA: {
     readonly enum: readonly ["formControl", "formGroup", "formArray"];
 };
 export declare const AJV_REQUIRED_FIELD_DATA_TYPE_SCHEMA: {
-    readonly enum: readonly ["number", "text", "email", "password", "phone", "date", "boolean", "file", "select", "multiselect", "object", "array"];
+    readonly enum: readonly ["number", "text", "email", "password", "phone", "date", "boolean", "file", "object", "array"];
 };
 export declare const AJV_REQUIRED_INPUT_TYPE_SCHEMA: {
     readonly enum: readonly ["inputText", "inputNumber", "calendar", "dropdown", "checkbox", "radioButton", "multiselect", "textarea", "phone", "form", "formArray"];

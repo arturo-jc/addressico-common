@@ -53,8 +53,6 @@ exports.AJV_REQUIRED_FIELD_DATA_TYPE_SCHEMA = {
         'date',
         'boolean',
         'file',
-        'select',
-        'multiselect',
         'object',
         'array',
     ],
