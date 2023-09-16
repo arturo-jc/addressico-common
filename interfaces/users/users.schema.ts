@@ -43,7 +43,12 @@ export const AJV_USER_LOCATION_SCHEMA = {
   additionalProperties: false,
 } as const;
 
-export const AJV_SERVICE_DATA = {
+export const AJV_USER_LOCATIONS_SCHEMA = {
+  type: 'array',
+  items: AJV_USER_LOCATION_SCHEMA,
+} as const;
+
+export const AJV_SINGLE_SERVICE_DATA_SCHEMA = {
   type: 'object',
   properties: {
     serviceId: { type: 'string' },
@@ -52,6 +57,11 @@ export const AJV_SERVICE_DATA = {
   },
   required: [ 'serviceId', 'fieldId' ],
   additionalProperties: false,
+} as const;
+
+export const AJV_SERVICE_DATA_SCHEMA = {
+  type: 'array',
+  items: AJV_SINGLE_SERVICE_DATA_SCHEMA,
 } as const;
 
 export const AJV_USER_SERVICE_SCHEMA = {
@@ -65,6 +75,11 @@ export const AJV_USER_SERVICE_SCHEMA = {
   additionalProperties: false,
 } as const;
 
+export const AJV_USER_SERVICES_SCHEMA = {
+  type: 'array',
+  items: AJV_USER_SERVICE_SCHEMA,
+} as const;
+
 export const AJV_USER_SCHEMA = {
   type: 'object',
   properties: {
@@ -76,18 +91,9 @@ export const AJV_USER_SCHEMA = {
     movingDate: { type: 'string' },
     defaultProviderEmail: { type: 'string' },
     notes: { type: 'string' },
-    data: {
-      type: 'array',
-      items: AJV_SERVICE_DATA,
-    },
-    services: {
-      type: 'array',
-      items: AJV_USER_SERVICE_SCHEMA,
-    },
-    locations: {
-      type: 'array',
-      items: AJV_USER_LOCATION_SCHEMA,
-    },
+    data: AJV_SERVICE_DATA_SCHEMA,
+    services: AJV_USER_SERVICES_SCHEMA,
+    locations: AJV_USER_LOCATIONS_SCHEMA,
     createdBy: { type: 'string' },
     invitedBy: { type: 'string' },
     employeeOfPartner: { type: 'string' },
@@ -131,7 +137,7 @@ export type UserLocation = FromSchema<typeof AJV_USER_LOCATION_SCHEMA>;
 
 export type Auth0User = FromSchema<typeof AJV_AUTH0_USER_SCHEMA>;
 
-export type ServiceData = FromSchema<typeof AJV_SERVICE_DATA>;
+export type ServiceData = FromSchema<typeof AJV_SINGLE_SERVICE_DATA_SCHEMA>;
 
 export type UserServiceDataStatus = FromSchema<typeof AJV_USER_SERVICE_DATA_STATUS_SCHEMA>;
 
