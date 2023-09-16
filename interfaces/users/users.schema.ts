@@ -89,6 +89,8 @@ export const AJV_USER_SCHEMA = {
     lastName: { type: 'string' },
     // Format 'YYYY-MM-DD',
     movingDate: { type: 'string' },
+    // TODO: Add pattern validation for phone numbers
+    phone: { type: 'string' },
     defaultProviderEmail: { type: 'string' },
     notes: { type: 'string' },
     data: AJV_SERVICE_DATA_SCHEMA,
@@ -145,19 +147,3 @@ export type UserService = FromSchema<typeof AJV_USER_SERVICE_SCHEMA>;
 
 export type User = FromSchema<typeof AJV_USER_SCHEMA>;
 
-export interface CreateUserInput {
-  email: string;
-  firstName?: string;
-  lastName?: string;
-  movingDate?: string;
-  phone?: string;
-  role: Auth0Role;
-}
-
-export type Auth0Role = 'partner' | 'user' | undefined;
-
-export interface GetUserInput{
-    id?: string;
-    invitedBy?: string;
-    employeeOfPartner?: string;
-}

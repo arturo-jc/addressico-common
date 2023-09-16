@@ -1,4 +1,4 @@
-import { CreateUserInput } from "../users/users.schema";
+import { CreateUserInput } from "../users/others.schema";
 
 export interface SendUserInviteInput {
   user: CreateUserInput;
