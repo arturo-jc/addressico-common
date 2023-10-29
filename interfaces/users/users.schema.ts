@@ -31,7 +31,6 @@ export const AJV_USER_LOCATION_SCHEMA = {
   },
   required: [
     'id',
-    'unitNumber',
     'street',
     'streetNumber',
     'streetType',
