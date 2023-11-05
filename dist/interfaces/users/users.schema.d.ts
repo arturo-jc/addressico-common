@@ -40,7 +40,7 @@ export declare const AJV_USER_LOCATION_SCHEMA: {
             readonly type: "boolean";
         };
     };
-    readonly required: readonly ["id", "unitNumber", "street", "streetNumber", "streetType", "city", "postalCode", "country", "jurisdiction"];
+    readonly required: readonly ["id", "street", "streetNumber", "streetType", "city", "postalCode", "country", "jurisdiction"];
     readonly additionalProperties: false;
 };
 export declare const AJV_USER_LOCATIONS_SCHEMA: {
@@ -82,7 +82,7 @@ export declare const AJV_USER_LOCATIONS_SCHEMA: {
                 readonly type: "boolean";
             };
         };
-        readonly required: readonly ["id", "unitNumber", "street", "streetNumber", "streetType", "city", "postalCode", "country", "jurisdiction"];
+        readonly required: readonly ["id", "street", "streetNumber", "streetType", "city", "postalCode", "country", "jurisdiction"];
         readonly additionalProperties: false;
     };
 };
@@ -302,7 +302,7 @@ export declare const AJV_USER_SCHEMA: {
                         readonly type: "boolean";
                     };
                 };
-                readonly required: readonly ["id", "unitNumber", "street", "streetNumber", "streetType", "city", "postalCode", "country", "jurisdiction"];
+                readonly required: readonly ["id", "street", "streetNumber", "streetType", "city", "postalCode", "country", "jurisdiction"];
                 readonly additionalProperties: false;
             };
         };
