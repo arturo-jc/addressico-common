@@ -1,6 +1,6 @@
 {
   "name": "addressico-common",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Types, utils, and anything else that needs to be shared across projects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
