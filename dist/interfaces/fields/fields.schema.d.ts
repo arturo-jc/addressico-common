@@ -17,7 +17,7 @@ declare const _NON_RECURSIVE_FIELD_SCHEMA: {
             readonly enum: readonly ["number", "text", "email", "password", "phone", "date", "boolean", "file", "object", "array"];
         };
         readonly inputType: {
-            readonly enum: readonly ["inputText", "inputNumber", "calendar", "dropdown", "checkbox", "radioButton", "multiselect", "textarea", "phone", "form", "formArray"];
+            readonly enum: readonly ["inputText", "inputNumber", "calendar", "dropdown", "checkbox", "radioButton", "multiselect", "textarea", "phone", "form", "formArray", "array"];
         };
         readonly label: {
             readonly type: "string";
@@ -158,7 +158,7 @@ export declare const AJV_FIELD_SCHEMA: {
             readonly enum: readonly ["number", "text", "email", "password", "phone", "date", "boolean", "file", "object", "array"];
         };
         readonly inputType: {
-            readonly enum: readonly ["inputText", "inputNumber", "calendar", "dropdown", "checkbox", "radioButton", "multiselect", "textarea", "phone", "form", "formArray"];
+            readonly enum: readonly ["inputText", "inputNumber", "calendar", "dropdown", "checkbox", "radioButton", "multiselect", "textarea", "phone", "form", "formArray", "array"];
         };
         readonly label: {
             readonly type: "string";
@@ -281,7 +281,7 @@ export declare const AJV_FIELD_SCHEMA: {
                     readonly enum: readonly ["number", "text", "email", "password", "phone", "date", "boolean", "file", "object", "array"];
                 };
                 readonly inputType: {
-                    readonly enum: readonly ["inputText", "inputNumber", "calendar", "dropdown", "checkbox", "radioButton", "multiselect", "textarea", "phone", "form", "formArray"];
+                    readonly enum: readonly ["inputText", "inputNumber", "calendar", "dropdown", "checkbox", "radioButton", "multiselect", "textarea", "phone", "form", "formArray", "array"];
                 };
                 readonly label: {
                     readonly type: "string";

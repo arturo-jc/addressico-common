@@ -83,7 +83,7 @@ export declare const AJV_REQUIRED_FIELD_DATA_TYPE_SCHEMA: {
     readonly enum: readonly ["number", "text", "email", "password", "phone", "date", "boolean", "file", "object", "array"];
 };
 export declare const AJV_REQUIRED_INPUT_TYPE_SCHEMA: {
-    readonly enum: readonly ["inputText", "inputNumber", "calendar", "dropdown", "checkbox", "radioButton", "multiselect", "textarea", "phone", "form", "formArray"];
+    readonly enum: readonly ["inputText", "inputNumber", "calendar", "dropdown", "checkbox", "radioButton", "multiselect", "textarea", "phone", "form", "formArray", "array"];
 };
 export type Option = FromSchema<typeof AJV_OPTION_SCHEMA>;
 export type FieldValidators = FromSchema<typeof AJV_FIELD_VALIDATORS_SCHEMA>;

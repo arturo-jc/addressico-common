@@ -74,6 +74,7 @@ export const AJV_REQUIRED_INPUT_TYPE_SCHEMA = {
     'phone',
     'form',
     'formArray',
+    'array'
   ],
 } as const;
 
