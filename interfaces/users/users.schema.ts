@@ -102,8 +102,8 @@ export const AJV_USER_SCHEMA = {
     mailingAddress: {type: 'string'},
     // Format 'YYYY-MM-DD',
     dateOfBirth: { type: 'string' },
-    sex: { type: 'string', enum: ['Male', 'Female', 'Other'] },
-    preferredContactMethod: { type: 'string', enum: ['Email', 'Phone', 'Mail'] },
+    sex: { type: 'string', enum: ['Male', 'Female', 'Other', ''] },
+    preferredContactMethod: { type: 'string', enum: ['Email', 'Phone', 'Mail', ''] },
   },
   required: [
     'id',

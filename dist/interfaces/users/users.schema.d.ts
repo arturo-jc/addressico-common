@@ -323,11 +323,11 @@ export declare const AJV_USER_SCHEMA: {
         };
         readonly sex: {
             readonly type: "string";
-            readonly enum: readonly ["Male", "Female", "Other"];
+            readonly enum: readonly ["Male", "Female", "Other", ""];
         };
         readonly preferredContactMethod: {
             readonly type: "string";
-            readonly enum: readonly ["Email", "Phone", "Mail"];
+            readonly enum: readonly ["Email", "Phone", "Mail", ""];
         };
     };
     readonly required: readonly ["id", "createdBy", "invitedBy"];
