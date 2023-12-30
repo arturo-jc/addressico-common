@@ -83,7 +83,6 @@ exports.AJV_USER_SCHEMA = {
         movingDate: { type: 'string' },
         // TODO: Add pattern validation for phone numbers
         phone: { type: 'string' },
-        defaultProviderEmail: { type: 'string' },
         notes: { type: 'string' },
         data: exports.AJV_SERVICE_DATA_SCHEMA,
         services: exports.AJV_USER_SERVICES_SCHEMA,
@@ -91,6 +90,13 @@ exports.AJV_USER_SCHEMA = {
         createdBy: { type: 'string' },
         invitedBy: { type: 'string' },
         employeeOfPartner: { type: 'string' },
+        // Shared Information
+        defaultProviderEmail: { type: 'string' },
+        mailingAddress: { type: 'string' },
+        // Format 'YYYY-MM-DD',
+        dateOfBirth: { type: 'string' },
+        sex: { type: 'string', enum: ['Male', 'Female', 'Other'] },
+        preferredContactMethod: { type: 'string', enum: ['Email', 'Phone', 'Mail'] },
     },
     required: [
         'id',

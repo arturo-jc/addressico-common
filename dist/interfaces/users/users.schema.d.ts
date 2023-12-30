@@ -205,9 +205,6 @@ export declare const AJV_USER_SCHEMA: {
         readonly phone: {
             readonly type: "string";
         };
-        readonly defaultProviderEmail: {
-            readonly type: "string";
-        };
         readonly notes: {
             readonly type: "string";
         };
@@ -314,6 +311,23 @@ export declare const AJV_USER_SCHEMA: {
         };
         readonly employeeOfPartner: {
             readonly type: "string";
+        };
+        readonly defaultProviderEmail: {
+            readonly type: "string";
+        };
+        readonly mailingAddress: {
+            readonly type: "string";
+        };
+        readonly dateOfBirth: {
+            readonly type: "string";
+        };
+        readonly sex: {
+            readonly type: "string";
+            readonly enum: readonly ["Male", "Female", "Other"];
+        };
+        readonly preferredContactMethod: {
+            readonly type: "string";
+            readonly enum: readonly ["Email", "Phone", "Mail"];
         };
     };
     readonly required: readonly ["id", "createdBy", "invitedBy"];
