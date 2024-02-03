@@ -16,6 +16,7 @@ export const AJV_CREATE_USER_INPUT_SCHEMA = {
     movingDate: { type: 'string' },
     phone: { type: 'string' },
     role: AJV_AUTH_ROLE_SCHEMA,
+    employeeOfPartner: { type: 'string' },
   },
   required: ['email', 'role'],
   additionalProperties: false,
