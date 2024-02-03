@@ -23,6 +23,9 @@ export declare const AJV_CREATE_USER_INPUT_SCHEMA: {
         readonly role: {
             readonly enum: readonly ["partner", "user"];
         };
+        readonly employeeOfPartner: {
+            readonly type: "string";
+        };
     };
     readonly required: readonly ["email", "role"];
     readonly additionalProperties: false;
