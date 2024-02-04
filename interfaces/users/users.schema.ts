@@ -69,6 +69,7 @@ export const AJV_USER_SERVICE_SCHEMA = {
     serviceId: { type: 'string' },
     serviceStatus: AJV_USER_SERVICE_DATA_STATUS_SCHEMA,
     integrationType: AJV_INTEGRATION_TYPE_SCHEMA,
+    lastAttemptedUpdateMessageId: { type: 'string' },
   },
   required: ['serviceId', 'serviceStatus', 'integrationType'],
   additionalProperties: false,
