@@ -64,6 +64,7 @@ exports.AJV_USER_SERVICE_SCHEMA = {
         serviceId: { type: 'string' },
         serviceStatus: exports.AJV_USER_SERVICE_DATA_STATUS_SCHEMA,
         integrationType: others_schema_1.AJV_INTEGRATION_TYPE_SCHEMA,
+        lastAttemptedUpdateMessageId: { type: 'string' },
     },
     required: ['serviceId', 'serviceStatus', 'integrationType'],
     additionalProperties: false,

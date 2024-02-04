@@ -161,6 +161,9 @@ export declare const AJV_USER_SERVICE_SCHEMA: {
         readonly integrationType: {
             readonly enum: readonly ["email", "axiom_webhook", "manual_online", "manual_in_person", "manual_phone", "emailWithPDF", "api", "online_form"];
         };
+        readonly lastAttemptedUpdateMessageId: {
+            readonly type: "string";
+        };
     };
     readonly required: readonly ["serviceId", "serviceStatus", "integrationType"];
     readonly additionalProperties: false;
@@ -178,6 +181,9 @@ export declare const AJV_USER_SERVICES_SCHEMA: {
             };
             readonly integrationType: {
                 readonly enum: readonly ["email", "axiom_webhook", "manual_online", "manual_in_person", "manual_phone", "emailWithPDF", "api", "online_form"];
+            };
+            readonly lastAttemptedUpdateMessageId: {
+                readonly type: "string";
             };
         };
         readonly required: readonly ["serviceId", "serviceStatus", "integrationType"];
@@ -254,6 +260,9 @@ export declare const AJV_USER_SCHEMA: {
                     };
                     readonly integrationType: {
                         readonly enum: readonly ["email", "axiom_webhook", "manual_online", "manual_in_person", "manual_phone", "emailWithPDF", "api", "online_form"];
+                    };
+                    readonly lastAttemptedUpdateMessageId: {
+                        readonly type: "string";
                     };
                 };
                 readonly required: readonly ["serviceId", "serviceStatus", "integrationType"];
