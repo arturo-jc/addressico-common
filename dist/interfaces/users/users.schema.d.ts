@@ -338,6 +338,9 @@ export declare const AJV_USER_SCHEMA: {
             readonly type: "string";
             readonly enum: readonly ["Email", "Phone", "Mail", ""];
         };
+        readonly isInvoiced: {
+            readonly type: "boolean";
+        };
     };
     readonly required: readonly ["id", "createdBy", "invitedBy"];
     readonly additionalProperties: false;

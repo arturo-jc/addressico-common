@@ -105,6 +105,7 @@ export const AJV_USER_SCHEMA = {
     dateOfBirth: { type: 'string' },
     sex: { type: 'string', enum: ['Male', 'Female', 'Other', ''] },
     preferredContactMethod: { type: 'string', enum: ['Email', 'Phone', 'Mail', ''] },
+    isInvoiced: { type: 'boolean' },
   },
   required: [
     'id',
