@@ -89,6 +89,8 @@ exports.AJV_USER_SCHEMA = {
         services: exports.AJV_USER_SERVICES_SCHEMA,
         locations: exports.AJV_USER_LOCATIONS_SCHEMA,
         createdBy: { type: 'string' },
+        createdAt: { type: 'string' },
+        lastInviteSentAt: { type: 'string' },
         invitedBy: { type: 'string' },
         employeeOfPartner: { type: 'string' },
         // Shared Information

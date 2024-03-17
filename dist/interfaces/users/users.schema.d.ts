@@ -315,6 +315,12 @@ export declare const AJV_USER_SCHEMA: {
         readonly createdBy: {
             readonly type: "string";
         };
+        readonly createdAt: {
+            readonly type: "string";
+        };
+        readonly lastInviteSentAt: {
+            readonly type: "string";
+        };
         readonly invitedBy: {
             readonly type: "string";
         };
