@@ -25,4 +25,5 @@ __exportStar(require("./interfaces/invites/invites.schema"), exports);
 __exportStar(require("./interfaces/partners/partners.schema"), exports);
 __exportStar(require("./interfaces/partners/others.schema"), exports);
 __exportStar(require("./interfaces/billing/billing.schema"), exports);
+__exportStar(require("./interfaces/invoices/invoices.schema"), exports);
 __exportStar(require("./interfaces/integrations/others.schema"), exports);
