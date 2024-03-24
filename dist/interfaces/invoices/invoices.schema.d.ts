@@ -50,6 +50,12 @@ export declare const AJV_INVOICE_SCHEMA: {
         readonly stripeHostedUrl: {
             readonly type: "string";
         };
+        readonly amountDue: {
+            readonly type: "number";
+        };
+        readonly amountPaid: {
+            readonly type: "number";
+        };
     };
     readonly additionalProperties: false;
     readonly required: readonly ["id", "partnerId", "date", "users", "stripeId", "stripeHostedUrl"];

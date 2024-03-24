@@ -32,6 +32,8 @@ export const AJV_INVOICE_SCHEMA = {
     },
     stripeId: { type: 'string' },
     stripeHostedUrl: { type: 'string' },
+    amountDue: { type: 'number' },
+    amountPaid: { type: 'number' },
   },
   additionalProperties: false,
   required: [
