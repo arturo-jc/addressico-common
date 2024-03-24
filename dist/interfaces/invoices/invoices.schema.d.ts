@@ -41,7 +41,7 @@ export declare const AJV_INVOICE_SCHEMA: {
                         readonly type: "string";
                     };
                 };
-                readonly required: readonly ["id", "firstName", "lastName", "email", "emailVerified", "loginsCount", "lastLogin", "lastIp"];
+                readonly required: readonly ["id", "firstName", "lastName", "email", "emailVerified", "loginsCount"];
             };
         };
         readonly stripeId: {

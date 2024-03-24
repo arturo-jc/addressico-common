@@ -28,8 +28,6 @@ exports.AJV_INVOICE_SCHEMA = {
                     'email',
                     'emailVerified',
                     'loginsCount',
-                    'lastLogin',
-                    'lastIp',
                 ],
             },
         },
