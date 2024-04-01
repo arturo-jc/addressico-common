@@ -391,4 +391,5 @@ export type ServiceData = FromSchema<typeof AJV_SINGLE_SERVICE_DATA_SCHEMA>;
 export type UserServiceDataStatus = FromSchema<typeof AJV_USER_SERVICE_DATA_STATUS_SCHEMA>;
 export type UserService = FromSchema<typeof AJV_USER_SERVICE_SCHEMA>;
 export type User = FromSchema<typeof AJV_USER_SCHEMA>;
+export type BasicUser = Pick<User, 'id' | 'createdAt' | 'lastInviteSentAt' | 'email' | 'firstName' | 'lastName' | 'hasLoggedIn' | 'isInvoiced' | 'phone' | 'employeeOfPartner' | 'invitedBy' | 'createdBy'>;
 //# sourceMappingURL=users.schema.d.ts.map

@@ -157,3 +157,5 @@ export type UserService = FromSchema<typeof AJV_USER_SERVICE_SCHEMA>;
 
 export type User = FromSchema<typeof AJV_USER_SCHEMA>;
 
+export type BasicUser = Pick<User, 'id' | 'createdAt' | 'lastInviteSentAt' | 'email' | 'firstName' | 'lastName' | 'hasLoggedIn' | 'isInvoiced' | 'phone' | 'employeeOfPartner' | 'invitedBy' | 'createdBy'>;
+
