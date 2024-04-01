@@ -1,5 +1,5 @@
 import { FromSchema } from "json-schema-to-ts";
-import { User } from "../users/users.schema";
+import { BasicUser, User } from "../users/users.schema";
 import { Partner } from "./partners.schema";
 
 export const AJV_ACTION_SCHEMA = {
@@ -26,7 +26,7 @@ export interface UpdatePartnerInput {
 }
 
 export interface PartnerWithUsers extends Partner{
-  employees: User[];
-  invitedUsers: User[];
+  employees: BasicUser[];
+  invitedUsers: BasicUser[];
 }
 
