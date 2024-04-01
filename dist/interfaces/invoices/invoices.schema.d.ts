@@ -56,6 +56,9 @@ export declare const AJV_INVOICE_SCHEMA: {
         readonly amountPaid: {
             readonly type: "number";
         };
+        readonly paid: {
+            readonly type: "boolean";
+        };
     };
     readonly additionalProperties: false;
     readonly required: readonly ["id", "partnerId", "date", "users", "stripeId", "stripeHostedUrl"];
