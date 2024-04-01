@@ -347,6 +347,9 @@ export declare const AJV_USER_SCHEMA: {
         readonly isInvoiced: {
             readonly type: "boolean";
         };
+        readonly hasLoggedIn: {
+            readonly type: "boolean";
+        };
     };
     readonly required: readonly ["id", "createdBy", "invitedBy"];
     readonly additionalProperties: false;

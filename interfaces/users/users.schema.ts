@@ -108,6 +108,7 @@ export const AJV_USER_SCHEMA = {
     sex: { type: 'string', enum: ['Male', 'Female', 'Other', ''] },
     preferredContactMethod: { type: 'string', enum: ['Email', 'Phone', 'Mail', ''] },
     isInvoiced: { type: 'boolean' },
+    hasLoggedIn: { type: 'boolean'},
   },
   required: [
     'id',
