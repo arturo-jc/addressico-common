@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AJV_INVOICE_SCHEMA = void 0;
+const users_schema_1 = require("../users/users.schema");
 exports.AJV_INVOICE_SCHEMA = {
     type: 'object',
     properties: {
@@ -9,27 +10,7 @@ exports.AJV_INVOICE_SCHEMA = {
         date: { type: 'number' },
         users: {
             type: 'array',
-            items: {
-                type: 'object',
-                properties: {
-                    id: { type: 'string' },
-                    firstName: { type: 'string' },
-                    lastName: { type: 'string' },
-                    email: { type: 'string' },
-                    emailVerified: { type: 'boolean' },
-                    loginsCount: { type: 'number' },
-                    lastLogin: { type: 'string' },
-                    lastIp: { type: 'string' },
-                },
-                required: [
-                    'id',
-                    'firstName',
-                    'lastName',
-                    'email',
-                    'emailVerified',
-                    'loginsCount',
-                ],
-            },
+            items: users_schema_1.AJV_USER_SCHEMA,
         },
         stripeId: { type: 'string' },
         stripeHostedUrl: { type: 'string' },

@@ -1,4 +1,5 @@
 import { FromSchema } from 'json-schema-to-ts';
+import { AJV_USER_SCHEMA } from '../users/users.schema';
 
 export const AJV_INVOICE_SCHEMA = {
   type: 'object',
@@ -8,27 +9,7 @@ export const AJV_INVOICE_SCHEMA = {
     date: { type: 'number' },
     users: {
       type: 'array',
-      items: {
-        type: 'object',
-        properties: {
-          id: { type: 'string' },
-          firstName: { type: 'string' },
-          lastName: { type: 'string' },
-          email: { type: 'string' },
-          emailVerified: { type: 'boolean' },
-          loginsCount: { type: 'number' },
-          lastLogin: { type: 'string' },
-          lastIp: { type: 'string' },
-        },
-        required: [
-          'id',
-          'firstName',
-          'lastName',
-          'email',
-          'emailVerified',
-          'loginsCount',
-        ],
-      },
+      items: AJV_USER_SCHEMA,
     },
     stripeId: { type: 'string' },
     stripeHostedUrl: { type: 'string' },
