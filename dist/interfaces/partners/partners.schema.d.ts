@@ -157,8 +157,48 @@ export declare const AJV_GET_PARTNERS_INPUT_SCHEMA: {
     readonly additionalProperties: false;
     readonly required: readonly [];
 };
+export declare const AJV_SIGN_UP_PARTNER_INPUT_SCHEMA: {
+    readonly type: "object";
+    readonly properties: {
+        readonly name: {
+            readonly type: "string";
+            readonly maxLength: 255;
+        };
+        readonly address: {
+            readonly type: "string";
+            readonly maxLength: 1024;
+        };
+        readonly industry: {
+            readonly type: "string";
+            readonly maxLength: 255;
+        };
+        readonly howDidTheyHearAboutUs: {
+            readonly type: "string";
+            readonly maxLength: 255;
+        };
+        readonly firstName: {
+            readonly type: "string";
+            readonly maxLength: 255;
+        };
+        readonly lastName: {
+            readonly type: "string";
+            readonly maxLength: 255;
+        };
+        readonly email: {
+            readonly type: "string";
+            readonly maxLength: 255;
+        };
+        readonly phone: {
+            readonly type: "string";
+            readonly maxLength: 255;
+        };
+    };
+    readonly additionalProperties: false;
+    readonly required: readonly ["name", "address", "industry", "howDidTheyHearAboutUs", "firstName", "lastName", "email", "phone"];
+};
 export type Partner = FromSchema<typeof AJV_PARTNER_SCHEMA>;
 export type CreatePartnerInput = Partner;
 export type UpdatePartnerInput = Partial<Omit<CreatePartnerInput, 'id'>>;
 export type GetPartnersInput = FromSchema<typeof AJV_GET_PARTNERS_INPUT_SCHEMA>;
+export type SignUpPartnerInput = FromSchema<typeof AJV_SIGN_UP_PARTNER_INPUT_SCHEMA>;
 //# sourceMappingURL=partners.schema.d.ts.map

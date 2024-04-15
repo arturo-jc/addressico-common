@@ -12,4 +12,10 @@ export declare const AJV_BOOLEAN: {
 export declare const AJV_NUMBER: {
     readonly type: "number";
 };
+export declare const AJV_EMAIL: {
+    readonly type: "string";
+};
+export declare const PHONE_NUMBER: {
+    readonly type: "string";
+};
 //# sourceMappingURL=ajv.consts.d.ts.map
