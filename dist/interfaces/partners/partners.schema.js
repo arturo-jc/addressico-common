@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AJV_PARTNER_SCHEMA = exports.AJV_BASE_PARTNER_PROPERTIES = void 0;
+exports.AJV_GET_PARTNERS_INPUT_SCHEMA = exports.AJV_PARTNER_SCHEMA = exports.AJV_BASE_PARTNER_PROPERTIES = void 0;
 const others_schema_1 = require("./others.schema");
 const ajv_consts_1 = require("../ajv.consts");
 exports.AJV_BASE_PARTNER_PROPERTIES = {
@@ -26,4 +26,12 @@ exports.AJV_PARTNER_SCHEMA = {
         'message',
         'signature',
     ],
+};
+exports.AJV_GET_PARTNERS_INPUT_SCHEMA = {
+    type: 'object',
+    properties: {
+        id: ajv_consts_1.AJV_STRING_SHORT,
+    },
+    additionalProperties: false,
+    required: [],
 };

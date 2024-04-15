@@ -30,8 +30,20 @@ export const AJV_PARTNER_SCHEMA = {
   ],
 } as const;
 
+export const AJV_GET_PARTNERS_INPUT_SCHEMA = {
+  type: 'object',
+  properties: {
+    id: AJV_STRING_SHORT,
+  },
+  additionalProperties: false,
+  required: [],
+} as const;
+
 export type Partner = FromSchema<typeof AJV_PARTNER_SCHEMA>;
 
 export type CreatePartnerInput = Partner;
 
 export type UpdatePartnerInput = Partial<Omit<CreatePartnerInput, 'id'>>;
+
+export type GetPartnersInput = FromSchema<typeof AJV_GET_PARTNERS_INPUT_SCHEMA>;
+

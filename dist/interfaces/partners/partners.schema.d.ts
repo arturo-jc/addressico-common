@@ -146,7 +146,19 @@ export declare const AJV_PARTNER_SCHEMA: {
     readonly additionalProperties: false;
     readonly required: readonly ["id", "name", "logo", "message", "signature"];
 };
+export declare const AJV_GET_PARTNERS_INPUT_SCHEMA: {
+    readonly type: "object";
+    readonly properties: {
+        readonly id: {
+            readonly type: "string";
+            readonly maxLength: 255;
+        };
+    };
+    readonly additionalProperties: false;
+    readonly required: readonly [];
+};
 export type Partner = FromSchema<typeof AJV_PARTNER_SCHEMA>;
 export type CreatePartnerInput = Partner;
 export type UpdatePartnerInput = Partial<Omit<CreatePartnerInput, 'id'>>;
+export type GetPartnersInput = FromSchema<typeof AJV_GET_PARTNERS_INPUT_SCHEMA>;
 //# sourceMappingURL=partners.schema.d.ts.map
