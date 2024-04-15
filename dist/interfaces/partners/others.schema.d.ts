@@ -21,14 +21,6 @@ export declare const AJV_ACTION_SCHEMA: {
     readonly required: readonly ["label", "icon", "link", "enabled"];
 };
 export type Action = FromSchema<typeof AJV_ACTION_SCHEMA>;
-export interface UpdatePartnerInput {
-    name?: string;
-    logo?: string;
-    message?: string;
-    signature?: string;
-    actionOne?: Action;
-    actionTwo?: Action;
-}
 export interface PartnerWithUsers extends Partner {
     employees: BasicUser[];
     invitedUsers: BasicUser[];
